@@ -1,0 +1,23 @@
+{
+  "name": "nodereact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heretics7/node-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heretics7/node-react/issues"
+  },
+  "homepage": "https://github.com/heretics7/node-react#readme",
+  "devDependencies": {
+    "express": "^4.17.3"
+  }
+}
