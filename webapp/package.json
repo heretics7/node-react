@@ -34,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "axios": "^0.26.1"
+  },
+  "proxy": "http://127.0.0.1:8080"
 }

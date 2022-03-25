@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var dbconfig = require('../db/config');
 var connection = mysql.createConnection(dbconfig);
 
-awsconnect.get('/', (req, res) => {
+awsconnect.post('/', (req, res) => {
     connection.query('SELECT * FROM contact' , (error, result) => {
         if(error) throw error;
         console.log('DB 내용 :', result);
