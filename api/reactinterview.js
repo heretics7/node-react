@@ -1,47 +1,24 @@
-var express = require('express')
+var express = require('express');
+var normal = require('./normal');
+var awsconnect = require('./awsconnect');
 var router = express.Router();
-var mysql = require('mysql')
-var dbconfig = require('../db/config.js')
-var pool = mysql.createPool(dbconfig); 
-router.use(express.urlencoded({ extended : true }))
 
-router.get('/', (req, res, next) =>{
+router.use(express.urlencoded({ extended : true }));
 
-    var botable = req.query.botable;
+router.get('/', (req, res, next) =>{   
+    var sqltable = req.query.type;  
+    if( sqltable == 'aws'){ // DB 접근하는 Router
+        req.body.mapper = "introduceSql"; // mybatis_mapper의 namespace
+        req.body.crud = "select"; // select, insert, update, delete 중 선택
+        req.body.mapper_id = "preinterview"; // sql문 정보를 담고있는 객체의 id
 
-    var crud = 'select';
+        router.use('/', awsconnect);
+        next('route');
 
-    switch(botable){ // 스위치 방식
-        case 'preinterview' :
-            crud = 'select';
-            break;
-        case 'interview' :
-            crud = 'select';
-            break;
-        case 'contact' :
-            crud = 'insert into';
-            break;
-        default:
-            botable = 'none';
-            crud = '';
-            break;
-    }
+    }else{ // DB 접근하지 않는 Router
+        router.use('/', normal);
+        next('route');
+    };
+});
 
-    if(botable !== 'none'){ 
-        pool.getConnection(function(err, connection) {
-            connection.query(
-                'select * from reactinterview.'+botable, 
-                (error, result) => {
-                    if(error) throw error;
-                    res.send(result)
-                })       
-            connection.release(); 
-        })
-   }else{ //botable이 없으면 
-        var normal = require('../api/normal')
-        router.use('/', normal )
-        next('route')
-    }
-})
-
-module.exports = router; 
+module.exports = router;

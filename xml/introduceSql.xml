@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="introduceSql">
+    <select id="interview">
+        select 
+            wr_id
+            ,   wr_a
+            ,   wr_q
+        from reactinterview.interview
+    </select>
+    <select id="introduce">
+        select 
+            keyno
+            ,  subject
+            ,  content
+        from reactinterview.introduce
+    </select>
+    <select id="preinterview">
+        select 
+            id
+            ,  subject
+            ,  content
+        from reactinterview.preinterview
+    </select>   
+</mapper>

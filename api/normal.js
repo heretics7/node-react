@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send("데이터 없음")
+    res.send("DB에 접근하지 않는 Router")
 })
 
 module.exports = router;
