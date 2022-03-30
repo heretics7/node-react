@@ -9,7 +9,25 @@ router.get('/', (req, res, next) =>{
 
     var botable = req.query.botable;
 
-    if(botable == 'preinterview'){ //botable이 preinterview 일 때
+    var crud = 'select';
+
+    switch(botable){ // 스위치 방식
+        case 'preinterview' :
+            crud = 'select';
+            break;
+        case 'interview' :
+            crud = 'select';
+            break;
+        case 'contact' :
+            crud = 'insert into';
+            break;
+        default:
+            botable = 'none';
+            crud = '';
+            break;
+    }
+
+    if(botable !== 'none'){ 
         pool.getConnection(function(err, connection) {
             connection.query(
                 'select * from reactinterview.'+botable, 
@@ -19,7 +37,7 @@ router.get('/', (req, res, next) =>{
                 })       
             connection.release(); 
         })
-   }else{ //botable이 preinterview가 아닐 때 
+   }else{ //botable이 없으면 
         var normal = require('../api/normal')
         router.use('/', normal )
         next('route')

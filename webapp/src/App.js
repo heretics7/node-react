@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <h2>RESTful API</h2>  
-      <Interview_Comp botable='preinterview'></Interview_Comp>        
+      <Interview_Comp botable='interview'></Interview_Comp>        
     </div>
   );
 }

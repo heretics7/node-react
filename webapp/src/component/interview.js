@@ -14,7 +14,7 @@ const Interview = (props) => {
                         try{
                             console.log(result);
                             interviewIdUpdate([...result.data]);
-                            insertDB(result.data[result.data.length - 1].id);
+                            insertDB(result.data[result.data.length - 1].wr_id);
                         }
                         catch(err){ console.log(err.message) }
                     }
@@ -29,7 +29,7 @@ const Interview = (props) => {
                 interviewId.map(( contant, i ) => {
                     return(
                         <li>
-                            <h3>{i+1} {contant.subject}</h3><div>{contant.content}</div>
+                            <h3>{i+1} {contant.wr_a}</h3><div>{contant.wr_q}</div>
                         </li>
                     )
                 })
