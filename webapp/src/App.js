@@ -1,9 +1,10 @@
-import FuncComp from "./component/FuncComp";
+import Interview_Comp from "./component/interview";
 
 function App() {
   return (
     <div>
-      <FuncComp></FuncComp>
+      <h2>RESTful API</h2>  
+      <Interview_Comp botable='preinterview'></Interview_Comp>        
     </div>
   );
 }
