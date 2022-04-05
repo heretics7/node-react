@@ -21,5 +21,37 @@
             ,  subject
             ,  content
         from reactinterview.preinterview
-    </select>   
+    </select>
+    <insert id="interviewInsert">
+        insert into
+            introduce (
+                subject
+                ,   content
+                )
+                value (
+                    '제목자리'
+                    ,   '내용자리'
+                );
+    </insert>
+    <insert id="interviewInsertReview">
+        insert into
+            review (
+                subject
+                ,   content
+                <if test="isimgsrc != '' && isimgsrc != null ">
+                ,   imgsrc
+                ,   imgidentity
+                </if>
+                ,   data
+                )
+            value (
+                '제목자리'
+                ,   '내용자리'
+                <if test="isimgsrc != '' && isimgsrc != null ">
+                ,   #{imgsrc}
+                ,   #{imgidentity}
+                </if>
+                ,   '개발코드'
+            );
+    </insert>
 </mapper>

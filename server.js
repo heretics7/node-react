@@ -6,7 +6,7 @@ var reactinterview = require('./api/reactinterview');
 app.use('/reactinterview', reactinterview);
 
 app.set('port', 8080)
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
     res.send('노드연결성공')
 })
 
