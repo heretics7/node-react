@@ -1,0 +1,21 @@
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    #nav{
+        font-family: 'Poppins', sans-serif;
+        height: calc(100vh - 90vh);
+        a{
+            font-size: 32px;
+        }
+        a:hover{
+            color: white;
+        }
+      };
+      #about{
+          height: calc(100vh - 10vh);
+          div{
+              img{
+                  height: 90vh;
+              }
+          }
+      }
+};
